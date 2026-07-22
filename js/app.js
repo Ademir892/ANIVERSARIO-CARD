@@ -1,0 +1,1 @@
+const App={init(){Stars.init();Navigation.init();}};window.onload=()=>App.init();
