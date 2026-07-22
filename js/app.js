@@ -1,1 +1,17 @@
-const App={init(){Stars.init();Navigation.init();}};window.onload=()=>App.init();
+const App = {
+
+    init(){
+
+        Background.init();
+
+        Navigation.init();
+
+    }
+
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+
+    App.init();
+
+});

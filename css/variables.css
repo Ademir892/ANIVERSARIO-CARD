@@ -1,1 +1,21 @@
-:root{--background:#020617;--white:#fff;}
+:root{
+
+    --background:#020617;
+
+    --surface:#0F172A;
+
+    --card:#172033;
+
+    --primary:#89CFF0;
+
+    --secondary:#CBD5E1;
+
+    --white:#FFFFFF;
+
+    --shadow:0 15px 45px rgba(0,0,0,.35);
+
+    --radius:24px;
+
+    --transition:.35s ease;
+
+}
