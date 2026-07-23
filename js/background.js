@@ -10,6 +10,8 @@ const Background = {
     this.createNebula();
     this.createStars();
     this.createMeteors();
+
+    this.parallax();
   },
 
   createNebula() {
@@ -73,7 +75,7 @@ const Background = {
 
       // 6. opacidade
       star.style.opacity = this.random(0.4, 1).toFixed(2);
-       
+
       // 7. animação
       const duration = this.random(2, 6).toFixed(2);
       star.style.animationDuration = `${duration}s`;
@@ -84,5 +86,31 @@ const Background = {
   },
   random(min, max) {
     return Math.random() * (max - min) + min;
+  },
+  parallax() {
+    window.addEventListener("mousemove", (event) => {
+      const x = Math.max(
+        -0.5,
+        Math.min(0.5, event.clientX / window.innerWidth - 0.5),
+      );
+
+      const y = Math.max(
+        -0.5,
+        Math.min(0.5, event.clientY / window.innerHeight - 0.5),
+      );
+      this.moveLayer("nebula", x, y, 8);
+
+      this.moveLayer("stars-small", x, y, 4);
+
+      this.moveLayer("stars-medium", x, y, 8);
+
+      this.moveLayer("stars-big", x, y, 14);
+    });
+  },
+
+  moveLayer(id, x, y, intensity) {
+    const layer = document.getElementById(id);
+
+    layer.style.transform = `translate(${x * intensity}px, ${y * intensity}px)`;
   },
 };
