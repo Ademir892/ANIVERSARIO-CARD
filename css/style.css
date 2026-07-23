@@ -9,3 +9,8 @@
   background: radial-gradient(circle at top, #0f172a, #020617 60%, #01040c);
   z-index: -2;
 }
+
+#app {
+  position: relative;
+  z-index: 1;
+}
