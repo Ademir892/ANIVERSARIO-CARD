@@ -3,19 +3,15 @@
 =========================== */
 
 #background {
-  position: fixed;
-  inset: 0;
 
-  overflow: hidden;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -999;
 
-  z-index: -999;
+    background:
+        radial-gradient(circle at top, #0F172A 0%, #08111F 35%, #020617 100%);
 
-  background: radial-gradient(
-    circle at top,
-    #10203d 0%,
-    #08111f 40%,
-    #020617 100%
-  );
 }
 
 /* ===========================
@@ -69,4 +65,26 @@
     transform: scale(0.8);
     opacity: 0.4;
   }
+}
+
+/* ===========================
+   NEBULOSAS
+=========================== */
+
+#nebula {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.nebula-cloud {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  opacity: 0.18;
+
+  pointer-events: none;
 }
