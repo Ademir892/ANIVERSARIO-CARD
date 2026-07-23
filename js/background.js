@@ -45,7 +45,31 @@ const Background = {
   },
 
   createMeteors() {
-    // Implementaremos depois
+    const launch = () => {
+      this.spawnMeteor();
+
+      setTimeout(launch, this.random(3000, 9000));
+    };
+
+    launch();
+  },
+
+  spawnMeteor() {
+    const meteor = document.createElement("div");
+
+    meteor.className = "meteor";
+
+    meteor.style.left = `${this.random(0, window.innerWidth)}px`;
+
+    meteor.style.top = `${this.random(-200, 200)}px`;
+
+    meteor.style.animation = "meteor 2s linear";
+
+    document.getElementById("meteors").appendChild(meteor);
+
+    meteor.addEventListener("animationend", () => {
+      meteor.remove();
+    });
   },
 
   generateLayer(id, quantity, min, max) {

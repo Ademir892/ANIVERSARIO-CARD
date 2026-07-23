@@ -6,6 +6,8 @@ const App = {
 
         Navigation.init();
 
+        Typing.init();
+
     }
 
 };
