@@ -2,18 +2,20 @@
    BACKGROUND
 =========================== */
 
-#background{
+#background {
+  position: fixed;
+  inset: 0;
 
-    position:fixed;
-    inset:0;
+  overflow: hidden;
 
-    overflow:hidden;
+  z-index: -999;
 
-    z-index:-999;
-
-    background:
-    radial-gradient(circle at top,#10203d 0%,#08111f 40%,#020617 100%);
-
+  background: radial-gradient(
+    circle at top,
+    #10203d 0%,
+    #08111f 40%,
+    #020617 100%
+  );
 }
 
 /* ===========================
@@ -24,24 +26,47 @@
 #stars-small,
 #stars-medium,
 #stars-big,
-#meteors{
+#meteors {
+  position: absolute;
 
-    position:absolute;
-
-    inset:0;
-
+  inset: 0;
 }
 
 /* ===========================
    ESTRELAS
 =========================== */
 
-.star{
+.star {
+  position: absolute;
 
-    position:absolute;
+  border-radius: 50%;
 
-    border-radius:50%;
+  background: white;
 
-    background:white;
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.5);
 
+  animation: twinkle infinite ease-in-out;
+}
+
+/* ===========================
+   ANIMAÇÃO DAS ESTRELAS
+=========================== */
+
+@keyframes twinkle {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
 }
