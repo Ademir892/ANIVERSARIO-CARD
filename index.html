@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/responsive.css" />
-    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/hero.css" />
   </head>
 
   <body>
@@ -25,18 +25,21 @@
       <div id="meteors"></div>
     </div>
 
-    <main id="app" class="container">
+    <main id="app">
       <section id="hero">
         <div class="hero-content">
-          <h1 id="typing"></h1>
+          <p id="typing" aria-live="polite"></p>
 
-          <button id="enterButton">✨ Entrar no nosso universo</button>
+          <button id="enterButton" type="button" disabled>
+            ✨ Começar a viagem
+          </button>
         </div>
       </section>
     </main>
 
     <script src="js/background.js"></script>
     <script src="js/navigation.js"></script>
+    <script src="js/typing.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

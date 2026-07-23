@@ -1,1 +1,49 @@
-@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===========================
+   ANIMAÇÃO DOS METEOROS
+=========================== */
+@keyframes meteor {
+  0% {
+    opacity: 0;
+
+    transform: translate(0, 0) rotate(45deg);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: translate(700px, 700px) rotate(45deg);
+  }
+}
+
+/* ===========================
+   ANIMAÇÃO DAS ESTRELAS
+=========================== */
+@keyframes twinkle {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+}
