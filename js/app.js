@@ -1,11 +1,12 @@
 const App = {
-    init() {
-        Background.init();
-        Navigation.init();
-        Typing.init();
-    }
+  init() {
+    Background.init();
+    Meteor.init();
+    Navigation.init();
+    Typing.init();
+  },
 };
 
 window.addEventListener("DOMContentLoaded", () => {
-    App.init();
+  App.init();
 });

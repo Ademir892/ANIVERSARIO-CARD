@@ -23,7 +23,7 @@
 
   transition:
     transform 1400ms cubic-bezier(0.22, 1, 0.36, 1),
-    filter 1400ms ease;
+    filter 180ms ease;
 
   will-change: transform, filter;
 }
@@ -33,6 +33,14 @@
 #background.background-traveling {
   transform: scale(1.12);
   filter: brightness(1.2);
+}
+
+#background.meteor-flash {
+  filter: brightness(1.04);
+}
+
+#background.background-traveling.meteor-flash {
+  filter: brightness(1.24);
 }
 
 /* ===========================
@@ -96,21 +104,97 @@
    METEOROS
 =========================== */
 
+#meteors {
+  pointer-events: none;
+}
+
 .meteor {
+  --meteor-angle: 35deg;
+  --meteor-distance: 1200px;
+  --meteor-duration: 2200ms;
+  --meteor-tail-length: 180px;
+  --meteor-scale: 1;
+
   position: absolute;
 
-  width: 2px;
-  height: 120px;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
 
   opacity: 0;
 
-  pointer-events: none;
+  transform: rotate(var(--meteor-angle)) scale(var(--meteor-scale));
+
+  transform-origin: right center;
+
+  animation: meteor-travel var(--meteor-duration)
+    cubic-bezier(0.2, 0.65, 0.3, 1) forwards;
+
+  will-change: transform, opacity;
+}
+
+.meteor-head {
+  position: relative;
+
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 7px rgba(255, 255, 255, 1),
+    0 0 16px rgba(255, 255, 255, 0.9),
+    0 0 30px rgba(160, 210, 255, 0.75);
+}
+
+.meteor-tail {
+  width: var(--meteor-tail-length);
+  height: 3px;
+
+  margin-right: -1px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(100, 170, 255, 0.08) 20%,
+    rgba(160, 210, 255, 0.35) 55%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+
+  filter: blur(0.4px);
+}
+
+@keyframes meteor-travel {
+  0% {
+    opacity: 0;
+
+    transform: rotate(var(--meteor-angle)) translateX(0)
+      scale(var(--meteor-scale));
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  82% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: rotate(var(--meteor-angle)) translateX(var(--meteor-distance))
+      scale(var(--meteor-scale));
+  }
+}
+
+/* Clarão sutil causado pelo meteoro */
+
+#background.meteor-flash {
+  filter: brightness(1.04);
 }
