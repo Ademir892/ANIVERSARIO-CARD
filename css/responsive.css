@@ -1,1 +1,81 @@
-@media(max-width:768px){.container{width:96%}}
+@media (max-width: 768px) {
+  .container {
+    width: 96%;
+  }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 800px) {
+  #journey {
+    padding: 100px 18px 70px;
+  }
+
+  .galaxy-introduction {
+    margin-bottom: 70px;
+  }
+
+  .planet-system {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 90px 30px;
+
+    min-height: auto;
+
+    place-items: center;
+  }
+
+  .planet {
+    position: relative;
+
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
+
+  .planet-achievements {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 520px) {
+  .planet-system {
+    grid-template-columns: 1fr;
+
+    gap: 95px;
+  }
+
+  .planet-achievements {
+    grid-column: auto;
+  }
+
+  .planet-manual {
+    --planet-size: 125px;
+  }
+
+  .planet-achievements {
+    --planet-size: 165px;
+  }
+
+  .planet-label {
+    max-width: 150px;
+
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .planet,
+  .planet-moon {
+    animation: none;
+  }
+
+  .planet {
+    transition: none;
+  }
+}

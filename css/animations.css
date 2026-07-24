@@ -47,3 +47,26 @@
     opacity: 0.4;
   }
 }
+
+/* ===========================
+   ANIMAÇÃO DOS PLANETAS
+=========================== */
+@keyframes planet-floating {
+  from {
+    translate: 0 -7px;
+  }
+
+  to {
+    translate: 0 8px;
+  }
+}
+
+@keyframes moon-orbit {
+  from {
+    transform: rotate(0deg) translateX(90px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(90px) rotate(-360deg);
+  }
+}

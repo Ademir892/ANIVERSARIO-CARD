@@ -1,0 +1,371 @@
+/* ===========================
+   JOURNEY
+=========================== */
+
+#journey {
+  position: relative;
+
+  min-height: 100vh;
+  padding: 120px 24px 80px;
+
+  overflow: hidden;
+}
+
+.galaxy {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+.galaxy-introduction {
+  position: relative;
+  z-index: 2;
+
+  max-width: 680px;
+  margin: 0 auto 50px;
+
+  text-align: center;
+}
+
+.galaxy-eyebrow {
+  margin-bottom: 12px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+
+  color: rgba(206, 190, 255, 0.8);
+}
+
+.galaxy-introduction h2 {
+  margin-bottom: 18px;
+
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  line-height: 1.05;
+
+  color: #ffffff;
+
+  text-shadow:
+    0 0 20px rgba(184, 155, 255, 0.22),
+    0 0 50px rgba(112, 80, 190, 0.16);
+}
+
+.galaxy-introduction p:not(.galaxy-eyebrow) {
+  max-width: 600px;
+  margin: 0 auto;
+
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===========================
+   PLANET SYSTEM
+=========================== */
+
+.planet-system {
+  position: relative;
+
+  width: min(1050px, 100%);
+  min-height: 720px;
+  margin: 0 auto;
+}
+
+.planet {
+  position: absolute;
+
+  width: var(--planet-size);
+  height: var(--planet-size);
+
+  padding: 0;
+  border: 0;
+
+  appearance: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  animation: planet-floating var(--float-duration, 6s) ease-in-out infinite
+    alternate;
+
+  transition:
+    transform 300ms ease,
+    filter 300ms ease;
+
+  isolation: isolate;
+}
+
+.planet:hover {
+  transform: scale(1.08);
+  filter: brightness(1.12);
+}
+
+.planet:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 10px;
+  border-radius: 50%;
+}
+
+.planet-body {
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.9),
+      transparent 8%
+    ),
+    radial-gradient(
+      circle at 35% 30%,
+      var(--planet-light),
+      var(--planet-main) 42%,
+      var(--planet-dark) 100%
+    );
+
+  box-shadow:
+    inset -20px -20px 35px rgba(0, 0, 0, 0.3),
+    inset 10px 10px 25px rgba(255, 255, 255, 0.12),
+    0 0 25px var(--planet-glow),
+    0 0 65px rgba(140, 110, 255, 0.12);
+}
+
+.planet-body::before,
+.planet-body::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.planet-body::before {
+  width: 45%;
+  height: 18%;
+
+  left: 15%;
+  top: 48%;
+
+  transform: rotate(-18deg);
+
+  filter: blur(3px);
+}
+
+.planet-body::after {
+  width: 26%;
+  height: 12%;
+
+  right: 12%;
+  top: 22%;
+
+  filter: blur(2px);
+}
+
+.planet-label {
+  position: absolute;
+
+  left: 50%;
+  top: calc(100% + 18px);
+
+  width: max-content;
+  max-width: 180px;
+
+  padding: 8px 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+
+  background: rgba(12, 8, 30, 0.55);
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+
+  backdrop-filter: blur(10px);
+
+  opacity: 0.75;
+
+  transform: translateX(-50%);
+
+  transition:
+    opacity 250ms ease,
+    background-color 250ms ease,
+    transform 250ms ease;
+
+  pointer-events: none;
+}
+
+.planet:hover .planet-label,
+.planet:focus-visible .planet-label {
+  opacity: 1;
+
+  background: rgba(28, 18, 58, 0.82);
+
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* ===========================
+   PLANET POSITIONS
+=========================== */
+
+.planet-manual {
+  --planet-size: 140px;
+  --planet-light: #ffb5db;
+  --planet-main: #c46bb5;
+  --planet-dark: #40205f;
+  --planet-glow: rgba(230, 115, 202, 0.38);
+  --float-duration: 6.4s;
+
+  left: 7%;
+  top: 13%;
+}
+
+.planet-bugs {
+  --planet-size: 95px;
+  --planet-light: #a7d8ff;
+  --planet-main: #4d78b9;
+  --planet-dark: #152b58;
+  --planet-glow: rgba(84, 151, 255, 0.35);
+  --float-duration: 5.3s;
+
+  right: 13%;
+  top: 8%;
+}
+
+.planet-achievements {
+  --planet-size: 190px;
+  --planet-light: #ffe5aa;
+  --planet-main: #bb7b45;
+  --planet-dark: #4d2345;
+  --planet-glow: rgba(255, 173, 91, 0.38);
+  --float-duration: 7.2s;
+
+  left: 41%;
+  top: 31%;
+}
+
+.planet-missions {
+  --planet-size: 115px;
+  --planet-light: #a6ffe5;
+  --planet-main: #4f9c91;
+  --planet-dark: #183f58;
+  --planet-glow: rgba(95, 231, 202, 0.3);
+  --float-duration: 6.1s;
+
+  left: 14%;
+  bottom: 11%;
+}
+
+.planet-terminal {
+  --planet-size: 125px;
+  --planet-light: #bcffa6;
+  --planet-main: #438658;
+  --planet-dark: #142f32;
+  --planet-glow: rgba(117, 255, 157, 0.3);
+  --float-duration: 5.8s;
+
+  right: 9%;
+  bottom: 13%;
+}
+
+.planet-message {
+  --planet-size: 78px;
+  --planet-light: #f4d8ff;
+  --planet-main: #8d69bf;
+  --planet-dark: #352251;
+  --planet-glow: rgba(196, 148, 255, 0.34);
+  --float-duration: 4.9s;
+
+  right: 32%;
+  top: 8%;
+}
+
+/* ===========================
+   RINGED PLANET
+=========================== */
+
+.planet-ring {
+  position: absolute;
+
+  width: 150%;
+  height: 43%;
+
+  left: 50%;
+  top: 50%;
+
+  border: 9px solid rgba(255, 212, 166, 0.55);
+  border-left-color: rgba(255, 212, 166, 0.15);
+  border-right-color: rgba(255, 212, 166, 0.2);
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%) rotate(-14deg);
+
+  box-shadow: 0 0 12px rgba(255, 190, 125, 0.18);
+
+  z-index: -1;
+}
+
+/* ===========================
+   PLANET WITH MOON
+=========================== */
+
+.planet-orbit {
+  position: absolute;
+
+  width: 145%;
+  height: 145%;
+
+  left: 50%;
+  top: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.planet-moon {
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  left: -12%;
+  top: 46%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle at 30% 25%,
+    #ffffff,
+    #9ba3c2 45%,
+    #41475f 100%
+  );
+
+  box-shadow: 0 0 10px rgba(220, 230, 255, 0.4);
+
+  animation: moon-orbit 5.5s linear infinite;
+}
+
+.galaxy-hint {
+  margin-top: 16px;
+
+  text-align: center;
+
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+
+  color: rgba(255, 255, 255, 0.42);
+}
+
+
+
