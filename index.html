@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/background.css" />
     <link rel="stylesheet" href="css/hero.css" />
-    <link rel="stylesheet" href="css/journey.css" />
-    <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/journey.css" />
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/animations.css" />
   </head>
 
   <body>
@@ -42,6 +43,32 @@
       </section>
 
       <section id="journey">
+        <div id="memoryModal" class="memory-modal" aria-hidden="true">
+          <div class="memory-modal__backdrop" data-modal-close></div>
+
+          <article
+            class="memory-modal__dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="memoryModalTitle"
+            tabindex="-1"
+          >
+            <button
+              class="memory-modal__close"
+              type="button"
+              aria-label="Fechar janela"
+              data-modal-close
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+
+            <p class="memory-modal__eyebrow">Arquivo encontrado</p>
+
+            <h2 id="memoryModalTitle">Explorando planeta...</h2>
+
+            <div id="memoryModalContent" class="memory-modal__content"></div>
+          </article>
+        </div>
         <div class="galaxy">
           <div class="galaxy-introduction">
             <p class="galaxy-eyebrow">Universo Mariana</p>
@@ -130,6 +157,7 @@
     <script src="js/meteor.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/typing.js"></script>
+    <script src="js/journey.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

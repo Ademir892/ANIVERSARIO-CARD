@@ -4,6 +4,7 @@ const App = {
     Meteor.init();
     Navigation.init();
     Typing.init();
+    Journey.init();
   },
 };
 
