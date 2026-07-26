@@ -61,13 +61,69 @@ const MemoryRepository = {
     },
 
     bugs: {
-      type: "placeholder",
+      type: "issue-list",
       eyebrow: "Relatório de qualidade",
       title: "Bugs conhecidos",
       description: `
-                Alguns comportamentos inesperados já foram identificados.
-                A equipe decidiu mantê-los porque fazem parte da experiência.
+        Durante os testes, alguns comportamentos inesperados
+        foram encontrados. A maioria foi classificada como
+        parte essencial da experiência.
+    `,
+      issues: [
+        {
+          id: "BUG-001",
+          title: "Adota mentalmente qualquer filhote",
+          description: `
+                Ao encontrar um animal pequeno, o sistema
+                pode iniciar imediatamente planos de adoção.
             `,
+          status: "wont-fix",
+          statusLabel: "Won't Fix",
+          severity: "Crítica",
+          icon: "🐈",
+        },
+        {
+          id: "BUG-002",
+          title: "Ri antes de terminar a própria piada",
+          description: `
+                A mensagem pode se tornar incompreensível
+                porque a usuária começa a rir antes do final.
+            `,
+          status: "feature",
+          statusLabel: "Feature",
+          severity: "Alta",
+          icon: "😂",
+        },
+        {
+          id: "BUG-003",
+          title: "Mudanças repentinas de assunto",
+          description: `
+                Conversas podem alterar completamente
+                de direção sem qualquer aviso prévio.
+            `,
+          status: "investigating",
+          statusLabel: "Investigando",
+          severity: "Média",
+          icon: "🧠",
+        },
+        {
+          id: "BUG-004",
+          title: "Excesso de carisma detectado",
+          description: `
+                Pode causar perda de concentração,
+                sorrisos involuntários e apego crescente.
+            `,
+          status: "accepted",
+          statusLabel: "Aceito",
+          severity: "Irreversível",
+          icon: "💜",
+        },
+      ],
+      note: `
+        Após análise técnica, a equipe concluiu que corrigir
+        esses comportamentos reduziria significativamente
+        a qualidade geral do sistema.
+    `,
     },
 
     achievements: {

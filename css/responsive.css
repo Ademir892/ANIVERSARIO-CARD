@@ -51,14 +51,11 @@
 
   .planet-achievements {
     grid-column: auto;
+    --planet-size: 165px;
   }
 
   .planet-manual {
     --planet-size: 125px;
-  }
-
-  .planet-achievements {
-    --planet-size: 165px;
   }
 
   .planet-label {
@@ -181,6 +178,43 @@
   .memory-modal.is-open .character-attribute,
   .character-attribute:hover,
   .planet.is-active {
+    animation: none;
+  }
+}
+
+/* ===========================
+   ISSUE LIST
+=========================== */
+
+@media (max-width: 560px) {
+  .issue-card__header {
+    flex-direction: column;
+  }
+
+  .issue-card__status {
+    margin-left: 57px;
+  }
+}
+
+@media (max-width: 380px) {
+  .issue-card {
+    padding: 16px;
+  }
+
+  .issue-card__icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 11px;
+  }
+
+  .issue-card__status {
+    margin-left: 51px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-modal.is-open .issue-card,
+  .issue-card:hover {
     animation: none;
   }
 }
