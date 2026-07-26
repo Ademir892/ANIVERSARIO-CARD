@@ -9,6 +9,8 @@ const MemoryRenderer = {
 
       "issue-list": () => this.renderIssueList(memory),
 
+      "achievement-list": () => this.renderAchievementList(memory),
+
       placeholder: () => this.renderPlaceholder(memory),
     };
 
@@ -129,6 +131,132 @@ const MemoryRenderer = {
         </div>
     `;
   },
+
+  renderAchievementList(memory) {
+    if (!Array.isArray(memory.achievements)) {
+      console.error(
+        "MemoryRenderer: lista de conquistas não encontrada.",
+        memory,
+      );
+
+      return this.renderNotFound();
+    }
+
+    const unlocked = memory.progress?.unlocked ?? 0;
+
+    const total = memory.progress?.total ?? memory.achievements.length;
+
+    const percentage = total > 0 ? Math.round((unlocked / total) * 100) : 0;
+
+    const achievements = memory.achievements
+      .map((achievement) => {
+        //const isLocked = achievement.status === "locked";
+
+        const isSecret = achievement.status === "secret";
+
+        const title = isSecret ? "Conquista secreta" : achievement.title;
+
+        return `
+        <article
+          class="
+            achievement-card
+            achievement-card--${achievement.status}
+          "
+        >
+          <div class="achievement-card__icon">
+            <span aria-hidden="true">
+              ${achievement.icon}
+            </span>
+          </div>
+
+          <div class="achievement-card__information">
+            <header class="achievement-card__header">
+              <div>
+                <span class="achievement-card__id">
+                  ${achievement.id}
+                </span>
+
+                <h3 class="achievement-card__title">
+                  ${title}
+                </h3>
+              </div>
+
+              <span
+                class="
+                  achievement-card__status
+                  achievement-card__status--${achievement.status}
+                "
+              >
+                ${achievement.statusLabel}
+              </span>
+            </header>
+
+            <p class="achievement-card__description">
+              ${achievement.description}
+            </p>
+
+            <footer class="achievement-card__footer">
+              <span>
+                ${achievement.date}
+              </span>
+
+              <strong>
+                ${achievement.rarity}
+              </strong>
+            </footer>
+          </div>
+        </article>
+      `;
+      })
+      .join("");
+
+    return `
+    <div class="achievement-list">
+      <p class="achievement-list__description">
+        ${memory.description}
+      </p>
+
+      <section
+        class="achievement-progress"
+        aria-label="${unlocked} de ${total} conquistas desbloqueadas"
+      >
+        <div class="achievement-progress__header">
+          <span>Progresso geral</span>
+
+          <strong>
+            ${unlocked} / ${total}
+          </strong>
+        </div>
+
+        <div
+          class="achievement-progress__track"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="${total}"
+          aria-valuenow="${unlocked}"
+        >
+          <span
+            class="achievement-progress__value"
+            style="--achievement-progress: ${percentage}%"
+          ></span>
+        </div>
+
+        <span class="achievement-progress__percentage">
+          ${percentage}% concluído
+        </span>
+      </section>
+
+      <div class="achievement-list__items">
+        ${achievements}
+      </div>
+
+      <div class="achievement-list__note">
+        ${memory.note}
+      </div>
+    </div>
+  `;
+  },
+
   renderPlaceholder(memory) {
     return `
             <div class="memory-placeholder">

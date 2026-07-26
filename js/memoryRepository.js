@@ -127,13 +127,116 @@ const MemoryRepository = {
     },
 
     achievements: {
-      type: "placeholder",
+      type: "achievement-list",
       eyebrow: "Progresso da jornada",
       title: "Conquistas desbloqueadas",
       description: `
-                O histórico de conquistas está sendo sincronizado
-                com os servidores do universo.
-            `,
+    Algumas conquistas já foram registradas no sistema.
+    Outras ainda aguardam os requisitos necessários
+    para serem oficialmente desbloqueadas.
+  `,
+      progress: {
+        unlocked: 4,
+        total: 7,
+      },
+      achievements: [
+        {
+          id: "ACH-001",
+          icon: "✨",
+          title: "Primeiro contato",
+          description: `
+        Iniciar uma conversa que, sem aviso prévio,
+        acabaria criando um novo universo.
+      `,
+          status: "unlocked",
+          statusLabel: "Desbloqueada",
+          date: "Conquista registrada",
+          rarity: "Rara",
+        },
+        {
+          id: "ACH-002",
+          icon: "😂",
+          title: "Risada sincronizada",
+          description: `
+        Rir juntos de alguma coisa que provavelmente
+        não faria sentido para mais ninguém.
+      `,
+          status: "unlocked",
+          statusLabel: "Desbloqueada",
+          date: "Conquista registrada",
+          rarity: "Incomum",
+        },
+        {
+          id: "ACH-003",
+          icon: "🎬",
+          title: "Sessão compartilhada",
+          description: `
+        Assistir a algo juntos sem que gatos,
+        comentários ou distrações dominem completamente a missão.
+      `,
+          status: "unlocked",
+          statusLabel: "Desbloqueada",
+          date: "Conquista registrada",
+          rarity: "Épica",
+        },
+        {
+          id: "ACH-004",
+          icon: "💜",
+          title: "Apego detectado",
+          description: `
+        Perceber que aquela pessoa começou a ocupar
+        uma parte importante demais dos pensamentos.
+      `,
+          status: "unlocked",
+          statusLabel: "Desbloqueada",
+          date: "Conquista registrada",
+          rarity: "Lendária",
+        },
+        {
+          id: "ACH-005",
+          icon: "🗺️",
+          title: "Primeira viagem",
+          description: `
+        Explorar algum lugar novo juntos
+        e voltar com histórias para contar.
+      `,
+          status: "locked",
+          statusLabel: "Bloqueada",
+          date: "Requisito pendente",
+          rarity: "Épica",
+        },
+        {
+          id: "ACH-006",
+          icon: "📸",
+          title: "Álbum de memórias",
+          description: `
+        Registrar momentos suficientes para criar
+        uma coleção de lembranças compartilhadas.
+      `,
+          status: "locked",
+          statusLabel: "Bloqueada",
+          date: "Requisito pendente",
+          rarity: "Rara",
+        },
+        {
+          id: "ACH-007",
+          icon: "❔",
+          title: "Conquista secreta",
+          description: `
+        Os requisitos desta conquista permanecerão ocultos
+        até que o universo considere o momento adequado.
+      `,
+          status: "secret",
+          statusLabel: "Secreta",
+          date: "Informação classificada",
+          rarity: "Desconhecida",
+        },
+      ],
+      note: `
+    O progresso é atualizado automaticamente conforme
+    novas memórias são criadas. Nenhuma conquista pode
+    ser desbloqueada à força.
+  `,
     },
 
     missions: {

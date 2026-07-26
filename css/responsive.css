@@ -218,3 +218,55 @@
     animation: none;
   }
 }
+
+/* ===========================
+   ACHIEVEMENTS
+=========================== */
+
+@media (max-width: 580px) {
+  .achievement-card__header {
+    flex-direction: column;
+  }
+
+  .achievement-card__status {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 460px) {
+  .achievement-card {
+    flex-direction: column;
+  }
+
+  .achievement-card__icon {
+    width: 52px;
+    height: 52px;
+    margin-right: 0;
+    margin-bottom: 14px;
+  }
+
+  .achievement-card__footer {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+}
+
+@media (max-width: 360px) {
+  .achievement-card {
+    padding: 16px;
+  }
+
+  .achievement-progress {
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-modal.is-open .achievement-progress__value,
+  .memory-modal.is-open .achievement-card,
+  .achievement-card:hover,
+  .achievement-card--unlocked .achievement-card__icon {
+    animation: none;
+  }
+}
