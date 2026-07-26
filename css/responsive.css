@@ -270,3 +270,81 @@
     animation: none;
   }
 }
+
+/* ===========================
+   LOVE TERMINAL
+=========================== */
+
+@media (max-width: 580px) {
+  .love-terminal__header {
+    grid-template-columns:
+      auto
+      1fr
+      auto;
+
+    gap: 12px;
+
+    padding: 0 13px;
+  }
+
+  .love-terminal__title {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .love-terminal__screen {
+    height: min(390px, 54vh);
+    padding: 18px;
+  }
+
+  .love-terminal__history {
+    font-size: 0.74rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .love-terminal__controls {
+    gap: 6px;
+  }
+
+  .love-terminal__control {
+    width: 9px;
+    height: 9px;
+  }
+
+  .love-terminal__title {
+    font-size: 0.6rem;
+  }
+
+  .love-terminal__screen {
+    padding: 15px;
+  }
+
+  .love-terminal__history {
+    font-size: 0.69rem;
+    line-height: 1.7;
+  }
+
+  .love-terminal__prompt-user {
+    display: none;
+  }
+
+  .love-terminal__prompt-separator {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-modal.is-open .love-terminal,
+  .love-terminal__prompt--active .love-terminal__cursor,
+  .love-terminal__connection,
+  .love-terminal__line {
+    animation: none;
+  }
+
+  .love-terminal__screen {
+    scroll-behavior: auto;
+  }
+}

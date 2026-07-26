@@ -250,12 +250,144 @@ const MemoryRepository = {
     },
 
     terminal: {
-      type: "placeholder",
+      type: "terminal",
       eyebrow: "Sistema operacional",
-      title: "Terminal do amor",
-      description: `
-                Sistema inicializado. Aguardando comandos...
-            `,
+      title: "Terminal do Amor",
+      version: "Universo Mariana Terminal v1.0.0",
+
+      bootMessages: [
+        {
+          text: "Inicializando sistema...",
+          type: "muted",
+          delay: 450,
+        },
+        {
+          text: "Carregando memórias compartilhadas...",
+          type: "muted",
+          delay: 550,
+        },
+        {
+          text: "Verificando compatibilidade emocional...",
+          type: "muted",
+          delay: 550,
+        },
+        {
+          text: "Compatibilidade confirmada.",
+          type: "success",
+          delay: 700,
+        },
+        {
+          text: "Conexão estabelecida com Mariana.",
+          type: "success",
+          delay: 850,
+        },
+      ],
+
+      commands: [
+        {
+          command: "whoami",
+          output: [
+            {
+              text: "Ademir",
+              type: "default",
+            },
+            {
+              text: "Desenvolvedor, copiloto e explorador deste universo.",
+              type: "muted",
+            },
+          ],
+        },
+        {
+          command: "locate happiness",
+          output: [
+            {
+              text: "Procurando...",
+              type: "muted",
+            },
+            {
+              text: "Correspondência encontrada:",
+              type: "success",
+            },
+            {
+              text: "/universo/mariana",
+              type: "path",
+            },
+          ],
+        },
+        {
+          command: "cat feelings.log",
+          output: [
+            {
+              text: "[INFO] Conexão emocional estabelecida.",
+              type: "info",
+            },
+            {
+              text: "[INFO] Apego inesperado detectado.",
+              type: "info",
+            },
+            {
+              text: "[WARN] Nenhum mecanismo de rollback disponível.",
+              type: "warning",
+            },
+          ],
+        },
+        {
+          command: "git status",
+          output: [
+            {
+              text: "On branch together",
+              type: "default",
+            },
+            {
+              text: "Your relationship is up to date.",
+              type: "success",
+            },
+            {
+              text: "nothing to commit, working tree happy",
+              type: "muted",
+            },
+          ],
+        },
+        {
+          command: "system status",
+          output: [
+            {
+              text: "Love Engine: running",
+              type: "success",
+            },
+            {
+              text: "Memory Sync: active",
+              type: "success",
+            },
+            {
+              text: "Future Plans: loading",
+              type: "warning",
+            },
+            {
+              text: "Mariana Connection: stable",
+              type: "success",
+            },
+          ],
+        },
+        {
+          command: "exit",
+          output: [
+            {
+              text: "Permission denied.",
+              type: "error",
+            },
+            {
+              text: "Você não pode sair deste universo.",
+              type: "accent",
+            },
+          ],
+        },
+      ],
+
+      finalMessage: {
+        text: "Processo concluído. Conexão mantida.",
+        type: "success",
+      },
     },
 
     message: {

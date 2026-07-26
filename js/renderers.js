@@ -11,6 +11,8 @@ const MemoryRenderer = {
 
       "achievement-list": () => this.renderAchievementList(memory),
 
+      terminal: () => this.renderTerminal(memory),
+
       placeholder: () => this.renderPlaceholder(memory),
     };
 
@@ -257,6 +259,67 @@ const MemoryRenderer = {
   `;
   },
 
+  renderTerminal(memory) {
+    return `
+    <section
+      class="love-terminal"
+      data-terminal
+      aria-label="${memory.title}"
+    >
+      <header class="love-terminal__header">
+        <div
+          class="love-terminal__controls"
+          aria-hidden="true"
+        >
+          <span
+            class="
+              love-terminal__control
+              love-terminal__control--close
+            "
+          ></span>
+
+          <span
+            class="
+              love-terminal__control
+              love-terminal__control--minimize
+            "
+          ></span>
+
+          <span
+            class="
+              love-terminal__control
+              love-terminal__control--maximize
+            "
+          ></span>
+        </div>
+
+        <span class="love-terminal__title">
+          ${memory.version}
+        </span>
+
+        <span
+          class="love-terminal__connection"
+          aria-label="Conexão ativa"
+          title="Conexão ativa"
+        ></span>
+      </header>
+
+      <div
+        class="love-terminal__screen"
+        data-terminal-screen
+        role="log"
+        aria-live="polite"
+        aria-relevant="additions"
+      >
+        <div class="love-terminal__history">
+          <span class="love-terminal__initializing">
+            Aguardando inicialização...
+          </span>
+        </div>
+      </div>
+    </section>
+  `;
+  },
   renderPlaceholder(memory) {
     return `
             <div class="memory-placeholder">

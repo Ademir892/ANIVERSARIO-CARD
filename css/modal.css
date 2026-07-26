@@ -763,3 +763,229 @@ body.modal-open {
   font-size: 0.88rem;
   line-height: 1.65;
 }
+
+/* ===========================
+   LOVE TERMINAL
+=========================== */
+
+.love-terminal {
+  overflow: hidden;
+
+  border: 1px solid rgba(181, 149, 255, 0.22);
+  border-radius: 18px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(19, 17, 29, 0.98),
+    rgba(7, 7, 13, 0.99)
+  );
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.42),
+    0 0 45px rgba(129, 81, 218, 0.08);
+}
+
+.love-terminal__header {
+  display: grid;
+  grid-template-columns:
+    minmax(80px, 1fr)
+    auto
+    minmax(80px, 1fr);
+  align-items: center;
+
+  min-height: 46px;
+  padding: 0 16px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.love-terminal__controls {
+  display: flex;
+
+  gap: 8px;
+}
+
+.love-terminal__control {
+  width: 11px;
+  height: 11px;
+
+  border-radius: 50%;
+}
+
+.love-terminal__control--close {
+  background: #ff5f57;
+}
+
+.love-terminal__control--minimize {
+  background: #febc2e;
+}
+
+.love-terminal__control--maximize {
+  background: #28c840;
+}
+
+.love-terminal__title {
+  color: rgba(255, 255, 255, 0.5);
+
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.love-terminal__connection {
+  justify-self: end;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: rgba(97, 235, 143, 0.92);
+
+  box-shadow: 0 0 12px rgba(97, 235, 143, 0.68);
+}
+
+.love-terminal__screen {
+  height: min(430px, 56vh);
+  padding: 22px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  scroll-behavior: smooth;
+}
+
+.love-terminal__history {
+  min-height: 100%;
+
+  color: rgba(244, 241, 255, 0.86);
+
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.81rem;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.love-terminal__initializing {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.love-terminal__line {
+  min-height: 1.75em;
+}
+
+.love-terminal__line--version {
+  margin-bottom: 8px;
+
+  color: rgba(213, 188, 255, 0.92);
+
+  font-weight: 700;
+}
+
+.love-terminal__line--default {
+  color: rgba(244, 241, 255, 0.82);
+}
+
+.love-terminal__line--muted {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.love-terminal__line--success {
+  color: rgba(129, 238, 163, 0.88);
+}
+
+.love-terminal__line--warning {
+  color: rgba(255, 204, 112, 0.9);
+}
+
+.love-terminal__line--error {
+  color: rgba(255, 112, 132, 0.92);
+}
+
+.love-terminal__line--info {
+  color: rgba(121, 196, 255, 0.88);
+}
+
+.love-terminal__line--path {
+  color: rgba(194, 158, 255, 0.94);
+}
+
+.love-terminal__line--accent {
+  color: rgba(226, 184, 255, 0.96);
+
+  font-weight: 700;
+}
+
+.love-terminal__separator {
+  height: 14px;
+}
+
+.love-terminal__prompt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+
+  min-height: 1.75em;
+}
+
+.love-terminal__prompt-user {
+  color: rgba(128, 231, 165, 0.9);
+}
+
+.love-terminal__prompt-separator {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.love-terminal__prompt-path {
+  color: rgba(136, 180, 255, 0.92);
+}
+
+.love-terminal__prompt-symbol {
+  margin-right: 8px;
+
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.love-terminal__command {
+  color: rgba(247, 244, 255, 0.94);
+}
+
+.love-terminal__cursor {
+  display: none;
+
+  width: 8px;
+  height: 1.15em;
+  margin-left: 4px;
+
+  vertical-align: text-bottom;
+
+  background: rgba(219, 190, 255, 0.9);
+}
+
+.love-terminal__prompt--active .love-terminal__cursor {
+  display: inline-block;
+}
+
+/* Barra de rolagem */
+
+.love-terminal__screen {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(182, 145, 255, 0.3) transparent;
+}
+
+.love-terminal__screen::-webkit-scrollbar {
+  width: 7px;
+}
+
+.love-terminal__screen::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.love-terminal__screen::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+
+  background: rgba(182, 145, 255, 0.28);
+}

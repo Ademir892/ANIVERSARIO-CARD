@@ -93,6 +93,14 @@ const Journey = {
     window.requestAnimationFrame(() => {
       this.elements.dialog.focus();
     });
+    window.dispatchEvent(
+      new CustomEvent("memory:opened", {
+        detail: {
+          memory,
+          memoryId,
+        },
+      }),
+    );
   },
 
   close() {
@@ -108,6 +116,8 @@ const Journey = {
 
     this.state.activePlanet = null;
     this.state.lastFocusedElement = null;
+
+    window.dispatchEvent(new CustomEvent("memory:closed"));
   },
 
   render(memory) {

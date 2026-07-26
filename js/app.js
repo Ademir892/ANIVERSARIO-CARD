@@ -5,6 +5,7 @@ const App = {
     Navigation.init();
     Typing.init();
     Journey.init();
+    TerminalExperience.init();
   },
 };
 
