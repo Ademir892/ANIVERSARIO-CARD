@@ -240,13 +240,104 @@ const MemoryRepository = {
     },
 
     missions: {
-      type: "placeholder",
+      type: "mission-list",
       eyebrow: "Próximos objetivos",
       title: "Missões futuras",
       description: `
-                Existem aventuras aguardando autorização,
-                planejamento e algumas decisões questionáveis.
-            `,
+    Algumas aventuras já começaram.
+    Outras ainda aguardam o momento certo
+    para serem oficialmente desbloqueadas.
+  `,
+      progress: {
+        completed: 2,
+        total: 6,
+      },
+      missions: [
+        {
+          id: "MIS-001",
+          icon: "☕",
+          title: "Primeiro café juntos",
+          description: `
+        Compartilhar um momento simples,
+        tranquilo e completamente nosso.
+      `,
+          status: "completed",
+          statusLabel: "Concluída",
+          category: "Memória",
+          reward: "+100 XP emocional",
+        },
+        {
+          id: "MIS-002",
+          icon: "🎬",
+          title: "Sessão de filme",
+          description: `
+        Assistir algo juntos e sobreviver
+        às pausas, comentários e interferências felinas.
+      `,
+          status: "completed",
+          statusLabel: "Concluída",
+          category: "Cotidiano",
+          reward: "Risada interna desbloqueada",
+        },
+        {
+          id: "MIS-003",
+          icon: "🏍️",
+          title: "Viagem de moto",
+          description: `
+        Escolher uma estrada, preparar a rota
+        e criar uma nova história sobre duas rodas.
+      `,
+          status: "in-progress",
+          statusLabel: "Em andamento",
+          category: "Aventura",
+          reward: "Memória lendária",
+        },
+        {
+          id: "MIS-004",
+          icon: "🗺️",
+          title: "Conhecer um lugar novo",
+          description: `
+        Explorar juntos um destino que ainda
+        não faça parte do nosso mapa.
+      `,
+          status: "available",
+          statusLabel: "Disponível",
+          category: "Exploração",
+          reward: "+250 XP de jornada",
+        },
+        {
+          id: "MIS-005",
+          icon: "🌌",
+          title: "Ver o céu longe da cidade",
+          description: `
+        Encontrar um lugar silencioso,
+        olhar as estrelas e esquecer o relógio.
+      `,
+          status: "locked",
+          statusLabel: "Bloqueada",
+          category: "Especial",
+          requirement: "Concluir uma missão de viagem",
+          reward: "Cena secreta",
+        },
+        {
+          id: "MIS-006",
+          icon: "❔",
+          title: "Missão classificada",
+          description: `
+        Os detalhes desta missão serão revelados
+        quando o universo considerar o momento correto.
+      `,
+          status: "secret",
+          statusLabel: "Secreta",
+          category: "Desconhecida",
+          requirement: "Informação indisponível",
+          reward: "Recompensa desconhecida",
+        },
+      ],
+      note: `
+    Nenhuma missão precisa ser concluída com pressa.
+    O objetivo principal continua sendo aproveitar a jornada.
+  `,
     },
 
     terminal: {

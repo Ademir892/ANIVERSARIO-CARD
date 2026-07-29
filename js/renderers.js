@@ -11,6 +11,8 @@ const MemoryRenderer = {
 
       "achievement-list": () => this.renderAchievementList(memory),
 
+      "mission-list": () => this.renderMissionList(memory),
+
       terminal: () => this.renderTerminal(memory),
 
       placeholder: () => this.renderPlaceholder(memory),
@@ -318,6 +320,166 @@ const MemoryRenderer = {
         </div>
       </div>
     </section>
+  `;
+  },
+
+  renderMissionList(memory) {
+    if (!Array.isArray(memory.missions)) {
+      console.error("MemoryRenderer: lista de missões não encontrada.", memory);
+
+      return this.renderNotFound();
+    }
+
+    const completed = memory.progress?.completed ?? 0;
+
+    const total = memory.progress?.total ?? memory.missions.length;
+
+    const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+    const missions = memory.missions
+      .map((mission) => {
+        const isSecret = mission.status === "secret";
+
+        const title = isSecret ? "Missão classificada" : mission.title;
+
+        const description = isSecret
+          ? `
+          Os detalhes desta missão ainda
+          permanecem protegidos pelo sistema.
+        `
+          : mission.description;
+
+        const requirement = mission.requirement
+          ? `
+          <div class="mission-card__requirement">
+            <span>Requisito</span>
+
+            <strong>
+              ${mission.requirement}
+            </strong>
+          </div>
+        `
+          : "";
+
+        return `
+        <article
+          class="
+            mission-card
+            mission-card--${mission.status}
+          "
+        >
+          <div class="mission-card__marker">
+            <span
+              class="mission-card__icon"
+              aria-hidden="true"
+            >
+              ${mission.icon}
+            </span>
+
+            <span
+              class="
+                mission-card__connector
+                mission-card__connector--${mission.status}
+              "
+              aria-hidden="true"
+            ></span>
+          </div>
+
+          <div class="mission-card__information">
+            <header class="mission-card__header">
+              <div>
+                <span class="mission-card__id">
+                  ${mission.id}
+                </span>
+
+                <h3 class="mission-card__title">
+                  ${title}
+                </h3>
+              </div>
+
+              <span
+                class="
+                  mission-card__status
+                  mission-card__status--${mission.status}
+                "
+              >
+                ${mission.statusLabel}
+              </span>
+            </header>
+
+            <p class="mission-card__description">
+              ${description}
+            </p>
+
+            ${requirement}
+
+            <footer class="mission-card__footer">
+              <div>
+                <span>Categoria</span>
+
+                <strong>
+                  ${mission.category}
+                </strong>
+              </div>
+
+              <div>
+                <span>Recompensa</span>
+
+                <strong>
+                  ${mission.reward}
+                </strong>
+              </div>
+            </footer>
+          </div>
+        </article>
+      `;
+      })
+      .join("");
+
+    return `
+    <div class="mission-list">
+      <p class="mission-list__description">
+        ${memory.description}
+      </p>
+
+      <section
+        class="mission-progress"
+        aria-label="${completed} de ${total} missões concluídas"
+      >
+        <div class="mission-progress__header">
+          <span>Progresso da campanha</span>
+
+          <strong>
+            ${completed} / ${total}
+          </strong>
+        </div>
+
+        <div
+          class="mission-progress__track"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="${total}"
+          aria-valuenow="${completed}"
+        >
+          <span
+            class="mission-progress__value"
+            style="--mission-progress: ${percentage}%"
+          ></span>
+        </div>
+
+        <span class="mission-progress__percentage">
+          ${percentage}% concluído
+        </span>
+      </section>
+
+      <div class="mission-list__items">
+        ${missions}
+      </div>
+
+      <div class="mission-list__note">
+        ${memory.note}
+      </div>
+    </div>
   `;
   },
   renderPlaceholder(memory) {

@@ -348,3 +348,57 @@
     scroll-behavior: auto;
   }
 }
+
+/* ===========================
+   MISSIONS
+=========================== */
+
+@media (max-width: 580px) {
+  .mission-card__header {
+    flex-direction: column;
+  }
+
+  .mission-card__status {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 460px) {
+  .mission-card {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-card__marker {
+    justify-content: flex-start;
+
+    margin-bottom: 14px;
+  }
+
+  .mission-card__connector {
+    display: none;
+  }
+
+  .mission-card__footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .mission-card {
+    padding: 16px;
+  }
+
+  .mission-progress {
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-modal.is-open .mission-progress__value,
+  .memory-modal.is-open .mission-card,
+  .mission-card:hover,
+  .mission-card--completed .mission-card__icon,
+  .mission-card--in-progress .mission-card__icon {
+    animation: none;
+  }
+}
