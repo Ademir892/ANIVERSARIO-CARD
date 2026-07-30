@@ -1323,3 +1323,318 @@ body.modal-open {
   font-size: 0.88rem;
   line-height: 1.65;
 }
+
+/* ===========================
+   PERSONAL MESSAGE
+=========================== */
+
+.personal-message {
+  position: relative;
+
+  min-height: 420px;
+}
+
+.personal-message__sealed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 420px;
+  padding: 42px 24px;
+
+  text-align: center;
+}
+
+.personal-message__seal {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  width: 92px;
+  height: 92px;
+
+  margin-bottom: 25px;
+
+  border: 1px solid rgba(215, 188, 255, 0.34);
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle at 35% 30%,
+    rgba(233, 211, 255, 0.26),
+    rgba(133, 83, 211, 0.1) 58%,
+    rgba(48, 24, 92, 0.08)
+  );
+
+  box-shadow:
+    0 0 35px rgba(154, 104, 229, 0.18),
+    inset 0 0 24px rgba(255, 255, 255, 0.05);
+}
+
+.personal-message__seal::before,
+.personal-message__seal::after {
+  content: "";
+
+  position: absolute;
+
+  border: 1px solid rgba(210, 181, 255, 0.14);
+  border-radius: 50%;
+}
+
+.personal-message__seal::before {
+  inset: -11px;
+}
+
+.personal-message__seal::after {
+  inset: -22px;
+}
+
+.personal-message__seal span {
+  color: rgba(234, 215, 255, 0.96);
+
+  font-size: 2rem;
+
+  text-shadow: 0 0 20px rgba(210, 175, 255, 0.55);
+}
+
+.personal-message__label {
+  margin-bottom: 12px;
+
+  color: rgba(219, 194, 255, 0.9);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.personal-message__description {
+  max-width: 440px;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.personal-message__open-button {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 27px;
+  padding: 12px 19px;
+
+  border: 1px solid rgba(205, 177, 255, 0.32);
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(151, 99, 229, 0.2),
+    rgba(93, 68, 181, 0.12)
+  );
+
+  color: rgba(246, 239, 255, 0.94);
+
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.personal-message__open-button:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(220, 198, 255, 0.52);
+
+  box-shadow: 0 12px 30px rgba(94, 55, 159, 0.25);
+}
+
+.personal-message__open-button:focus-visible {
+  outline: 2px solid rgba(220, 198, 255, 0.85);
+  outline-offset: 4px;
+}
+
+.personal-letter {
+  display: none;
+
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 8px 5px 16px;
+}
+
+.personal-letter.is-revealed {
+  display: block;
+}
+
+.personal-letter__header {
+  margin-bottom: 24px;
+
+  text-align: center;
+}
+
+.personal-letter__eyebrow {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: rgba(196, 163, 246, 0.72);
+
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.personal-letter__title {
+  color: rgba(255, 255, 255, 0.96);
+
+  font-size: clamp(1.7rem, 5vw, 2.45rem);
+  line-height: 1.15;
+}
+
+.personal-letter__introduction {
+  margin-bottom: 26px;
+
+  color: rgba(232, 219, 249, 0.74);
+
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.personal-letter__content {
+  display: grid;
+
+  gap: 19px;
+}
+
+.personal-letter__paragraph {
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 0.94rem;
+  line-height: 1.85;
+}
+
+.personal-letter__paragraph:first-child::first-letter {
+  float: left;
+
+  margin-top: 5px;
+  margin-right: 7px;
+
+  color: rgba(220, 194, 255, 0.94);
+
+  font-family: Georgia, serif;
+  font-size: 3.1rem;
+  line-height: 0.75;
+}
+
+.personal-letter__highlight {
+  position: relative;
+
+  margin: 34px 0;
+  padding: 25px 30px;
+
+  border: 1px solid rgba(206, 176, 255, 0.16);
+  border-radius: 18px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(134, 83, 209, 0.1),
+    rgba(255, 255, 255, 0.025)
+  );
+
+  text-align: center;
+}
+
+.personal-letter__highlight > span {
+  position: absolute;
+
+  color: rgba(205, 176, 255, 0.22);
+
+  font-family: Georgia, serif;
+  font-size: 3.5rem;
+}
+
+.personal-letter__highlight > span:first-child {
+  top: 1px;
+  left: 15px;
+}
+
+.personal-letter__highlight > span:last-child {
+  right: 15px;
+  bottom: -18px;
+}
+
+.personal-letter__highlight p {
+  color: rgba(240, 228, 255, 0.92);
+
+  font-family: Georgia, serif;
+  font-size: 1.12rem;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.personal-letter__closing {
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+
+.personal-letter__signature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  margin-top: 30px;
+}
+
+.personal-letter__signature span {
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 0.84rem;
+}
+
+.personal-letter__signature strong {
+  margin-top: 5px;
+
+  color: rgba(225, 204, 255, 0.96);
+
+  font-family: Georgia, serif;
+  font-size: 1.45rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.personal-letter__final-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 13px;
+
+  margin-top: 38px;
+  padding-top: 24px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.personal-letter__final-message span {
+  color: rgba(194, 158, 246, 0.62);
+}

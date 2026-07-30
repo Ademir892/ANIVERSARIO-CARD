@@ -402,3 +402,57 @@
     animation: none;
   }
 }
+
+/* ===========================
+   PERSONAL MESSAGE
+=========================== */
+
+@media (max-width: 580px) {
+  .personal-message__sealed {
+    min-height: 360px;
+    padding-inline: 12px;
+  }
+
+  .personal-message__seal {
+    width: 78px;
+    height: 78px;
+  }
+
+  .personal-letter__highlight {
+    padding: 23px 22px;
+  }
+
+  .personal-letter__highlight p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .personal-letter__introduction {
+    text-align: left;
+  }
+
+  .personal-letter__paragraph {
+    font-size: 0.9rem;
+  }
+
+  .personal-letter__final-message {
+    align-items: flex-start;
+
+    font-size: 0.6rem;
+    line-height: 1.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .personal-message__seal,
+  .personal-message__seal::before,
+  .personal-message__seal::after,
+  .personal-message__sealed.is-opening,
+  .personal-letter.is-revealed,
+  .personal-letter.is-revealed .personal-letter__paragraph,
+  .personal-letter.is-revealed .personal-letter__highlight,
+  .personal-letter.is-revealed .personal-letter__signature {
+    animation: none;
+  }
+}

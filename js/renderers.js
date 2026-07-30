@@ -13,6 +13,8 @@ const MemoryRenderer = {
 
       "mission-list": () => this.renderMissionList(memory),
 
+      "personal-message": () => this.renderPersonalMessage(memory),
+
       terminal: () => this.renderTerminal(memory),
 
       placeholder: () => this.renderPlaceholder(memory),
@@ -480,6 +482,124 @@ const MemoryRenderer = {
         ${memory.note}
       </div>
     </div>
+  `;
+  },
+
+  renderPersonalMessage(memory) {
+    const paragraphs = Array.isArray(memory.paragraphs)
+      ? memory.paragraphs
+          .map(
+            (paragraph, index) => `
+            <p
+              class="personal-letter__paragraph"
+              style="--paragraph-index: ${index}"
+            >
+              ${paragraph}
+            </p>
+          `,
+          )
+          .join("")
+      : "";
+
+    return `
+    <section
+      class="personal-message"
+      data-personal-message
+    >
+      <div
+        class="personal-message__sealed"
+        data-message-sealed
+      >
+        <div
+          class="personal-message__seal"
+          aria-hidden="true"
+        >
+          <span>
+            ${memory.sealedMessage?.icon ?? "✦"}
+          </span>
+        </div>
+
+        <span class="personal-message__label">
+          ${memory.sealedMessage?.label ?? ""}
+        </span>
+
+        <p class="personal-message__description">
+          ${memory.sealedMessage?.description ?? ""}
+        </p>
+
+        <button
+          class="personal-message__open-button"
+          type="button"
+          data-message-open
+        >
+          <span>
+            ${memory.sealedMessage?.buttonLabel ?? "Abrir mensagem"}
+          </span>
+
+          <span aria-hidden="true">
+            →
+          </span>
+        </button>
+      </div>
+
+      <article
+        class="personal-letter"
+        data-personal-letter
+        aria-hidden="true"
+      >
+        <header class="personal-letter__header">
+          <span class="personal-letter__eyebrow">
+            ${memory.eyebrow ?? ""}
+          </span>
+
+          <h2 class="personal-letter__title">
+            ${memory.title ?? ""}
+          </h2>
+        </header>
+
+        <p class="personal-letter__introduction">
+          ${memory.introduction ?? ""}
+        </p>
+
+        <div class="personal-letter__content">
+          ${paragraphs}
+        </div>
+
+        <blockquote class="personal-letter__highlight">
+          <span aria-hidden="true">“</span>
+
+          <p>
+            ${memory.highlight ?? ""}
+          </p>
+
+          <span aria-hidden="true">”</span>
+        </blockquote>
+
+        <p class="personal-letter__closing">
+          ${memory.closing ?? ""}
+        </p>
+
+        <footer class="personal-letter__signature">
+          <span>
+            ${memory.signature?.text ?? ""}
+          </span>
+
+          <strong>
+            ${memory.signature?.name ?? ""}
+          </strong>
+        </footer>
+
+        <div class="personal-letter__final-message">
+          <span aria-hidden="true">✦</span>
+
+          <p>
+            ${memory.finalMessage ?? ""}
+          </p>
+
+          <span aria-hidden="true">✦</span>
+        </div>
+      </article>
+    </section>
   `;
   },
   renderPlaceholder(memory) {

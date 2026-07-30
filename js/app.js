@@ -6,6 +6,7 @@ const App = {
     Typing.init();
     Journey.init();
     TerminalExperience.init();
+    PersonalMessageExperience.init();
   },
 };
 

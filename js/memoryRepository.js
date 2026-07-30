@@ -482,13 +482,83 @@ const MemoryRepository = {
     },
 
     message: {
-      type: "placeholder",
+      type: "personal-message",
+
       eyebrow: "Transmissão particular",
-      title: "Para você",
-      description: `
-                Algumas mensagens precisam esperar o momento certo
-                para serem reveladas.
-            `,
+
+      title: "Para você, Mariana",
+
+      sealedMessage: {
+        icon: "✦",
+        label: "Mensagem protegida",
+        description: `
+      Esta transmissão foi criada exclusivamente
+      para uma única pessoa neste universo.
+    `,
+        buttonLabel: "Abrir mensagem",
+      },
+
+      introduction: `
+    Depois de explorar cada parte deste universo,
+    chegou o momento de revelar o motivo pelo qual
+    ele existe.
+  `,
+
+      paragraphs: [
+        `
+      Mariana, este projeto nasceu de uma vontade
+      simples: criar alguma coisa que não pudesse
+      ser encontrada pronta em nenhum outro lugar.
+    `,
+
+        `
+      Cada planeta, cada animação, cada frase e cada
+      detalhe foram pensados para representar um pouco
+      da forma como eu enxergo você e da história que
+      estamos construindo.
+    `,
+
+        `
+      Talvez eu nem sempre consiga transformar tudo
+      o que sinto em palavras. Por isso, transformei
+      parte disso em código, estrelas, memórias,
+      missões e pequenos segredos.
+    `,
+
+        `
+      Você se tornou uma presença muito especial na
+      minha vida. Não porque tudo precisa ser perfeito,
+      mas porque existem pessoas que fazem até os dias
+      comuns ganharem um significado diferente.
+    `,
+
+        `
+      Este universo ainda não está completo — e essa
+      é justamente a parte mais bonita. Ainda existem
+      lugares para conhecer, histórias para viver e
+      memórias que nem sequer foram criadas.
+    `,
+      ],
+
+      highlight: `
+    Entre todas as possibilidades deste universo,
+    eu escolheria encontrar você novamente.
+  `,
+
+      closing: `
+    Obrigado por fazer parte da minha vida
+    e por inspirar algo tão único.
+  `,
+
+      signature: {
+        text: "Com carinho,",
+        name: "Ademir",
+      },
+
+      finalMessage: `
+    Fim da transmissão.
+    Início de novas memórias.
+  `,
     },
   },
 
